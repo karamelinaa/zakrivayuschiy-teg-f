@@ -1,1 +1,21 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+  --main-font: Inter;
+  --accent-font: "Press Start 2P";
+  --main-weight: 400;
+  --title-weight: 700;
+  --bg-color: #fff;
+  --color: #000;
+  --bg-image: repeating-linear-gradient(to right, #d3d3d3 2px, transparent 2px),
+    repeating-linear-gradient(to bottom, #d3d3d3 2px, transparent 2px),
+    linear-gradient(to bottom, #e7e7e7, #1a1a1a);
+  --border: #000;
+  --width-content: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
+  --border-label: #fff;
+  --contour-color: #000;
+  --fill-color: #ff0000;
+  --core-color: #000;
+  --main-body-hover: #000;
+  --button-color: #fff;
+}
