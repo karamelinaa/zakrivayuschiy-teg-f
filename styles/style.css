@@ -51,7 +51,7 @@
   padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 25px;
   background-color: var(--bg-color, #fff);
   margin: 100px 0 100px;
-  font-variation-settings: var(--main-weight, 400);
+  font-variation-settings: 'wdth' var(--main-weight, 400);
   font-size: 14px;
   text-transform: uppercase;
 }
@@ -172,7 +172,7 @@
 .card__content-title {
   font-size: 18px;
   padding: clamp(0.25rem, 0.272rem + -0.0939vw, 0.1875rem) 10px;
-  font-variation-settings: var(--title-weight, 700);
+  font-variation-settings: 'wdth' var(--title-weight, 700);
   border: 2px solid var(--border, #000);
 }
 
@@ -390,7 +390,7 @@ dialog::backdrop {
 .dialog__text {
   grid-column: span 1;
   font-size: 14px;
-  font-variation-settings: var(--main-weight, 400);
+  font-variation-settings: 'wdth' var(--main-weight, 400);
   line-height: 150%;
 }
 
@@ -405,9 +405,4 @@ dialog::backdrop {
 dialog:not([open]) {
   pointer-events: none;
   opacity: 0;
-}
-
-dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
 }
