@@ -11,7 +11,6 @@
     repeating-linear-gradient(to bottom, #d3d3d3 2px, transparent 2px),
     linear-gradient(to bottom, #e7e7e7, #1a1a1a);
   --border: #000;
-  --width-content: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
   --border-label: #fff;
   --contour-color: #000;
   --fill-color: #ff0000;
