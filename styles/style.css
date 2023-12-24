@@ -25,7 +25,7 @@
     --bg-image,
     repeating-linear-gradient(to right, #d3d3d3 2px, transparent 2px),
     repeating-linear-gradient(to bottom, #d3d3d3 2px, transparent 2px),
-    linear-gradient(to bottom, #e7e7e7, #1a1a1a)
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a)
   );
   background-attachment: fixed;
   background-size: cover;
@@ -43,7 +43,7 @@
 }
 
 .header {
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, fantasy);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,7 +51,7 @@
   padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) 0 25px;
   background-color: var(--bg-color, #fff);
   margin: 100px 0 100px;
-  font-variation-settings: 'wdth' var(--main-weight, 400);
+  font-weight: var(--main-weight, 400);
   font-size: 14px;
   text-transform: uppercase;
 }
@@ -66,6 +66,10 @@
 
 .header__content-title {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__content-title:focus {
+  outline: none;
 }
 
 @media (width <=374px) {
@@ -94,6 +98,7 @@
   padding: 0;
   text-transform: uppercase;
   transition: opacity 0.3s ease;
+  transition: width 300ms, background-color 0.5s;
 }
 
 .theme-menu__button:disabled::before {
@@ -144,7 +149,6 @@
 .theme-menu__button:focus-visible::after {
   inline-size: 100%;
   background-color: var(--color);
-  transition: width 300ms, background-color 0.5s;
 }
 
 .theme-menu__button::after {
@@ -153,7 +157,7 @@
   width: 0%;
   height: 2px;
   margin-top: 1px;
-  background-color: var(--color);
+  background-color: var(--color, #000);
   transition: none;
 }
 
@@ -172,8 +176,8 @@
 .card__content-title {
   font-size: 18px;
   padding: clamp(0.25rem, 0.272rem + -0.0939vw, 0.1875rem) 10px;
-  font-variation-settings: 'wdth' var(--title-weight, 700);
-  border: 2px solid var(--border, #000);
+  font-variation-settings: "wdth" var(--title-weight, 700);
+  border-bottom: 2px solid var(--border, #000);
 }
 
 .card__content-label {
@@ -186,17 +190,18 @@
   block-size: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
   object-fit: cover;
   object-position: center;
-  border: 2px solid var(--border);
+  border-bottom: 2px solid var(--border, #000);
 }
 
 .card__content-label-text {
   position: absolute;
   opacity: 0.5;
+  font-size: 14px;
   top: clamp(1.4375rem, 1.3935rem + 0.1878vw, 1.5625rem);
   right: clamp(0.6875rem, 0.3794rem + 1.3146vw, 1.5625rem);
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, fantasy);
   text-transform: uppercase;
-  -webkit-text-stroke: 1px var(--border-label, #fff);
+  text-shadow: 0 0 1px var(--border-label, #fff);
   mix-blend-mode: hard-light;
 }
 
@@ -212,6 +217,9 @@
 }
 
 .card__content-text {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
   padding: 30px 25px 23px;
   line-height: 116%;
   font-size: 18px;
@@ -238,12 +246,12 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  transition: box-shadow 0.3s ease;
 }
 
 .button:focus {
   outline: none;
   box-shadow: 2px 2px 0 0 var(--color);
-  transition: box-shadow 0.3s ease;
 }
 
 .button::before {
@@ -268,6 +276,7 @@
   padding: 0;
   background-color: transparent;
   cursor: pointer;
+  transition: outline 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -276,7 +285,6 @@
 
 .card__icon-button:focus-visible {
   border-color: var(--color, #000);
-  transition: outline 0.3s ease;
 }
 
 .card__like-button {
@@ -287,32 +295,32 @@
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, fantasy);
   line-height: 90%;
   font-size: 14px;
   white-space: nowrap;
   color: var(--button-color);
 }
 
-.footer {
+.bottom_button {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 0 clamp(6.25rem, 6.184rem + 0.2817vw, 6.4375rem);
 }
 
-.footer__button {
+.bottom_button-b {
   padding: 16px 20px;
   gap: 8px;
 }
 
 @media (width <=375px) {
-  .footer__button {
+  .bottom_button-b {
     flex-direction: column;
   }
 }
 
-.footer__button-image {
+.bottom_button-image {
   inline-size: 21px;
   block-size: 21px;
   mix-blend-mode: difference;
@@ -320,47 +328,42 @@
 }
 
 @media (width <=375px) {
-  .footer__button-image {
+  .bottom_button-image {
     inline-size: 28px;
     block-size: 28px;
   }
 }
 
-.filter__card1 {
+.filter__mix {
   filter: brightness(200%) contrast(90%) saturate(300%);
 }
 
-.filter__card2 {
+.filter__brightness-contrast {
   filter: brightness(150%) contrast(120%);
 }
 
-.filter__card3 {
-  filter: brightness(150%) contrast(130%);
-}
-
-.filter__card4 {
+.filter__contrast {
   filter: contrast(150%);
 }
 
-.filter__card5 {
+.filter__contrast-grayscale {
   filter: contrast(150%) grayscale(0.8);
 }
 
-.filter__card6 {
+.filter__brightness-more {
   filter: brightness(150%);
 }
 
-.filter__card7 {
+.filter__saturate {
   filter: saturate(300%);
 }
 
-.filter__card8 {
+.filter__brightness {
   filter: brightness(120%);
 }
 
 dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
 .dialog {
@@ -390,14 +393,14 @@ dialog::backdrop {
 .dialog__text {
   grid-column: span 1;
   font-size: 14px;
-  font-variation-settings: 'wdth' var(--main-weight, 400);
+  font-weight: var(--main-weight, 400);
   line-height: 150%;
 }
 
 .close {
   border: 2px solid var(--border, #000);
   grid-column: span 2;
-  padding: 7px 0;
+  padding: 10px 0;
   cursor: pointer;
   text-transform: uppercase;
 }
